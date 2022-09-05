@@ -7,10 +7,10 @@
 		Utilizando os principios de git flow!
 	</p>
 	<ul>
-		<li>Encontrar quadras disponíveis;</li>
-		<li>Agendar o local para a partida;</li>
-		<li>Encontrar time que precisa de adversários;</li>
-		<li>Candidatar-se para jogar a partida, etc.</li>
+		<li>Antes de codar, baixem a versão mais nova da aplicação: git pull develop</li>
+		<li>Crie uma branch para cada nova feature: git checkout -b "feat/NomeDaFeature"</li>
+		<li>Solicitem seus respectivos pull request</li>
+		<li>Acho que é isso</li>
 	</ul>
 	 
 </div>
