@@ -13,9 +13,9 @@ class UserSerializer(ModelSerializer):
             "first_name",
             "last_name",
             "birth_date",
-            "data_joined",
             "updated_at",
             "is_superuser",
+            "password",
         ]
         read_only = ["id", "is_superuser", "created_at", "updated_at"]
         extra_kwargs = {"password": {"write_only": True}}
