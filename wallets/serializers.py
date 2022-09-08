@@ -8,6 +8,7 @@ from .models import Wallet
 
 class WalletSerializer(serializers.ModelSerializer):
     extract = ExtractSerializer(read_only=True)
+
     class Meta:
         model = Wallet
         fields = [
@@ -16,9 +17,8 @@ class WalletSerializer(serializers.ModelSerializer):
         ]
 
     def create(self, validated_data):
-        
+
         extract = Extract.objects.create()
-        wallet = Wallet.objects.create(**validated_data,extract=extract)
+        wallet = Wallet.objects.create(**validated_data, extract=extract)
 
         return wallet
-

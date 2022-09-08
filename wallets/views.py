@@ -9,6 +9,3 @@ from wallets.serializers import WalletSerializer
 class WalletView(generics.ListCreateAPIView):
     serializer_class = WalletSerializer
     queryset = Wallet.objects.all()
-
-
-

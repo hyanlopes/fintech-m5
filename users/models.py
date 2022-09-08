@@ -5,6 +5,7 @@ from django.db import models
 
 from cpf_field.models import CPFField
 
+
 class User(AbstractUser):
     id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
     email = models.EmailField(unique=True)
