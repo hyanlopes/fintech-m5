@@ -7,7 +7,8 @@ from .models import Asset
  
  
 class AssetSerializer(serializers.ModelSerializer):
-   class Meta:
+    class Meta:
        model = Asset
        fields = "__all__"
-       read_only_fields = ["wallets"]
+    
+

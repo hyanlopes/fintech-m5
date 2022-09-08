@@ -12,28 +12,24 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Asset",
+            name="Extract",
             fields=[
                 (
                     "id",
                     models.UUIDField(
+                        auto_created=True,
                         default=uuid.uuid4,
                         editable=False,
                         primary_key=True,
                         serialize=False,
                     ),
                 ),
-                ("name", models.CharField(max_length=50)),
                 (
-                    "transaction_type",
-                    models.CharField(
-                        choices=[("buy", "Buy"), ("sell", "Sell"), ("none", "Default")],
-                        default="none",
-                        max_length=50,
-                    ),
+                    "price",
+                    models.DecimalField(decimal_places=2, default=0, max_digits=10),
                 ),
-                ("price", models.DecimalField(decimal_places=2, max_digits=15)),
-                ("transaction_date_time", models.DateTimeField(auto_now=True)),
+                ("quantity", models.PositiveIntegerField(default=0)),
+                ("type", models.CharField(default="-", max_length=256)),
             ],
         ),
     ]

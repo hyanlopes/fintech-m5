@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "financial_assets",
     "cpf_field",
     "address",
+    "extracts"
 ]
 
 MIDDLEWARE = [
@@ -153,3 +154,4 @@ if DATABASE_URL:
         default=DATABASE_URL, conn_max_age=500, ssl_require=True
     )
     DATABASES["default"].update(db_from_env)
+    DEBUG = False
