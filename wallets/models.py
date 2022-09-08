@@ -8,7 +8,7 @@ class Wallet(models.Model):
     name = models.CharField(max_length=50)
 
     user = models.ForeignKey(
-        "users.User", on_delete=models.CASCADE, related_name="users"
+        "users.User", on_delete=models.CASCADE, related_name="wallets"
     )
 
     financial_assets = models.ManyToManyField(
