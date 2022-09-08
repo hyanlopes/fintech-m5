@@ -24,9 +24,11 @@ class AddressView(generics.ListCreateAPIView):
         serializer.save(user=self.request.user)
 
 
-class UpdateDeleteRetrieveView(generics.RetrieveUpdateDestroyAPIView):
+class DetailAddressView(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAddressOwner]
+    permission_classes = [IsAuthenticated, IsAddressOwner]
 
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
+
+    lookup_url_kwarg = "user_id"
