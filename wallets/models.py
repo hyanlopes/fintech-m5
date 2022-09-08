@@ -9,7 +9,7 @@ class Wallet(models.Model):
 
     # FK 1:N - users
     user = models.ForeignKey(
-        "users.User", on_delete=models.CASCADE, related_name="users"
+        "users.User", on_delete=models.CASCADE, related_name="wallets"
     )
 
     # FK N:N - financial assets
