@@ -1,6 +1,6 @@
 from rest_framework import generics
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Address
 from .permissions import IsAddressOwner
@@ -9,7 +9,7 @@ from .serializers import AddressSerializer
 
 class AddressView(generics.ListCreateAPIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAddressOwner]
+    permission_classes = [IsAuthenticated, IsAddressOwner]
 
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
