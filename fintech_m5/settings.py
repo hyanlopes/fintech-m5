@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "users",
     "wallets",
     "financial_assets",
+    "cpf_field",
 ]
 
 MIDDLEWARE = [
