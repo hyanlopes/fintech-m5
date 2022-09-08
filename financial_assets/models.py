@@ -9,7 +9,7 @@ class Exchange(models.TextChoices):
     DEFAULT = "none"
 
 
-class Asset(models.Models):
+class Asset(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     name = models.CharField(max_length=50)
     transaction_type = models.CharField(
