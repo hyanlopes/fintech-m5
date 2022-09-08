@@ -10,6 +10,7 @@ class UserSerializer(ModelSerializer):
             "id",
             "username",
             "email",
+            "cpf",
             "first_name",
             "last_name",
             "birth_date",
