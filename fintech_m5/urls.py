@@ -22,5 +22,6 @@ urlpatterns = [
     path("api/", include("users.urls")),
     path("api/", include("wallets.urls")),
     path("api/", include("financial_assets.urls")),
+    path("api/", include("address.urls")),
     path("api/login/", obtain_auth_token),
 ]

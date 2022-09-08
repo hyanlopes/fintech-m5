@@ -5,5 +5,7 @@ from .models import Address
 
 class AddressSerializer(ModelSerializer):
     class Meta:
-        models = Address
+        model = Address
         fields = "__all__"
+        read_only_fields = ["user"]
+        depth = 1
