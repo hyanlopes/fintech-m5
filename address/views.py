@@ -31,4 +31,4 @@ class DetailAddressView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
 
-    lookup_url_kwarg = "user_id"
+    lookup_url_kwarg = "address_id"
