@@ -5,7 +5,7 @@ from rest_framework import serializers
 from .models import Transaction
 
 
-class ExtractSerializer(serializers.ModelSerializer):
+class TransactionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = "__all__"

@@ -3,7 +3,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Address
-from .permissions import IsAddressOwner
+from .permissions import IsAddressOwner, IsAddressOwnerOrAdmin
 from .serializers import AddressSerializer
 
 
@@ -26,9 +26,9 @@ class AddressView(generics.ListCreateAPIView):
 
 class DetailAddressView(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated, IsAddressOwner]
+    permission_classes = [IsAuthenticated, IsAddressOwnerOrAdmin]
 
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
 
-    lookup_url_kwarg = "user_id"
+    lookup_url_kwarg = "address_id"

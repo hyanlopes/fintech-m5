@@ -1,22 +1,19 @@
-from extracts.models import Extract
-from extracts.serializers import ExtractSerializer
 from rest_framework import serializers
+from transactions.models import Transaction
+from transactions.serializers import TransactionsSerializer
 
 from .models import Wallet
 
 
 class WalletSerializer(serializers.ModelSerializer):
-    extract = ExtractSerializer(read_only=True)
+    transactions = TransactionsSerializer(many=True, read_only=True)
 
     class Meta:
         model = Wallet
-        fields = [
-            "id",
-            "name",
-        ]
+        fields = "__all__"
+        depth = 1
 
     def create(self, validated_data):
-        extract = Extract.objects.create()
-        wallet = Wallet.objects.create(**validated_data, extract=extract)
+        wallet = Wallet.objects.create(**validated_data)
 
         return wallet

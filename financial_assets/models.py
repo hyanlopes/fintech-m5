@@ -16,6 +16,7 @@ class Asset(models.Model):
         max_length=50, choices=Exchange.choices, default=Exchange.DEFAULT
     )
     price = models.DecimalField(max_digits=15, decimal_places=2)
+    # quotation
     transaction_date_time = models.DateTimeField(auto_now=True)
 
     wallets = models.ManyToManyField("wallets.Wallet", related_name="assets")
