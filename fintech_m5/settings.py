@@ -44,11 +44,11 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "users",
-    "wallets",
-    "financial_assets",
     "cpf_field",
     "address",
-    "extracts"
+    "financial_assets",
+    "extracts",
+    "wallets",
 ]
 
 MIDDLEWARE = [

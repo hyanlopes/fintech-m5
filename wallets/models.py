@@ -10,9 +10,3 @@ class Wallet(models.Model):
     user = models.ForeignKey(
         "users.User", on_delete=models.CASCADE, related_name="wallets"
     )
-
-    financial_assets = models.ManyToManyField(
-        "financial_assets.Asset", related_name="financial_assets"
-    )
-
-    extract = models.OneToOneField("extracts.Extract", on_delete=models.CASCADE)
