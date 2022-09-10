@@ -11,7 +11,7 @@ from .serializers import AssetSerializer
 
 class ListCreateAssetView(generics.ListCreateAPIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsOwnerPermission]
+    permission_classes = [IsAuthenticated, IsOwnerPermission]
     serializer_class = AssetSerializer
 
     def perform_create(self, serializer):
@@ -23,7 +23,6 @@ class ListCreateAssetView(generics.ListCreateAPIView):
     def get_queryset(self):
         wallet = get_object_or_404(Wallet, pk=self.kwargs["wallets_id"])
         assets = Asset.objects.filter(wallet=wallet)
-
         return assets 
 
 
@@ -32,3 +31,5 @@ class RetrieveUpdateAssetView(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwnerPermission]
     queryset = Asset.objects.all()
     serializer_class = AssetSerializer
+
+    #lookup_url_kwarg = "assets_id"
