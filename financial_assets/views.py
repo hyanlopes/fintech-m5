@@ -15,13 +15,13 @@ class ListCreateAssetView(generics.ListCreateAPIView):
     serializer_class = AssetSerializer
 
     def perform_create(self, serializer):
-        wallet = get_object_or_404(Wallet, pk=self.pk)
+        wallet = get_object_or_404(Wallet, pk=self.kwargs["wallets_id"])
         
         self.check_object_permissions(self.request, wallet)
         serializer.save(wallet=wallet)
 
     def get_queryset(self):
-        wallet = get_object_or_404(Wallet, pk=self.pk)
+        wallet = get_object_or_404(Wallet, pk=self.kwargs["wallets_id"])
         assets = Asset.objects.filter(wallet=wallet)
 
         return assets 
