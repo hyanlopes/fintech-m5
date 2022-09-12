@@ -10,6 +10,7 @@ class Transaction(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     # total_price?
     quantity = models.DecimalField(max_digits=10, decimal_places=10)
+    #acho que não pode ser apenas type
     type = models.CharField(max_length=256, default="-")
 
     wallets = models.ForeignKey(
