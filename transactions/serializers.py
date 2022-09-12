@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-from financial_assets.models import Asset
 from rest_framework import serializers
 
 from .models import Transaction
