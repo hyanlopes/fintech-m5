@@ -20,4 +20,7 @@ class DataCrypto:
             "price_actual": price_actual[1]["4. close"],
         }
 
-        return obj_for_api
+        try:
+            return obj_for_api
+        except obj_for_api.information:
+            raise KeyError("teste")

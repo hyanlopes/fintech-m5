@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import Response
 
 # from users.permissions import IsOwnerPermission
 from wallets.models import Wallet
@@ -21,5 +22,13 @@ class ListCreateTransactionView(generics.ListCreateAPIView):
 
         wallet = get_object_or_404(Wallet, id=self.request.data["wallets"])
 
-        crypto_quotation = DataCrypto.get(crypto=wallet.asset_ticket)["price_actual"]
-        serializer.save(quotation=crypto_quotation)
+        try:
+            crypto_quotation = DataCrypto.get(crypto=wallet.asset_ticket)[
+                "price_actual"
+            ]
+
+            if crypto_quotation != None:
+                serializer.save(quotation=crypto_quotation)
+
+        except KeyError as err:
+            return Response({"error": err.args[0]}, status=404)
