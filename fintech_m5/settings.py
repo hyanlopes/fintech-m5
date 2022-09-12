@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     "users",
     "cpf_field",
     "address",
-    "financial_assets",
     "transactions",
     "wallets",
 ]
