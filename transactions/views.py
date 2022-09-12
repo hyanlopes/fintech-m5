@@ -17,6 +17,10 @@ class ListCreateTransactionView(generics.ListCreateAPIView):
     serializer_class = TransactionsSerializer
     queryset = Transaction.objects.all()
 
+    lookup_url_kwarg = "assets_name"
+
     def perform_create(self, serializer):
-        crypto_quotation = DataCrypto.get(crypto="ETH")["price_actual"]
+        crypto_quotation = DataCrypto.get(crypto=self.kwargs["assets_name"])[
+            "price_actual"
+        ]
         serializer.save(quotation=crypto_quotation)
