@@ -8,4 +8,3 @@ class AddressSerializer(ModelSerializer):
         model = Address
         fields = "__all__"
         read_only_fields = ["user"]
-        depth = 1

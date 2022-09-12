@@ -11,7 +11,7 @@ class WalletSerializer(serializers.ModelSerializer):
     class Meta:
         model = Wallet
         fields = "__all__"
-        depth = 1
+        read_only_fields = ["user"]
 
     def create(self, validated_data):
         wallet = Wallet.objects.create(**validated_data)
