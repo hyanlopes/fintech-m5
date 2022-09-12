@@ -18,4 +18,15 @@ class TransactionsSerializer(serializers.ModelSerializer):
     total_value = serializers.SerializerMethodField()
 
     def get_total_value(self, obj):
-        return obj.quantity * obj.quotation
+        # import ipdb
+
+        # ipdb.set_trace()
+
+        return float(obj.quantity) * float(obj.quotation)
+
+    def create(self, validated_data):
+        validated_data["total_value"] = float(validated_data["quantity"]) * float(
+            validated_data["quotation"]
+        )
+
+        return Transaction.objects.create(**validated_data)
